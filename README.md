@@ -125,13 +125,8 @@ Both learned models output `power if p(on) > threshold else 0`. The threshold mi
 
 ## AI tools used
 
-This project was built with **Claude (Anthropic) in Claude Code**. It helped:
-- inspect the data;
-- write the pipeline scripts;
-- run the experiments;
-- draft these documents.
-
-The claims rest on outputs the scripts regenerate, not on the AI's word. Every number in the documents comes from a CSV in `outputs/tables/`, and the key findings are backed by checks inside the pipeline:
+This project was built using some help from claude.
+ Every number in the documents comes from a CSV in `outputs/tables/`, and the key findings are backed by checks inside the pipeline:
 - the clock problem: `clock_check.csv`, 18 homes;
 - duplicate and sentinel values: `s1_raw_checks.csv`;
 - agreement with the official cleaned data: `s1_vs_official.csv`.
