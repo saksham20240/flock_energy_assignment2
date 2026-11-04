@@ -1,0 +1,25 @@
+{
+  "lightgbm": {
+    "threshold": 0.7,
+    "clf_trees": 1569,
+    "reg_trees": 1446,
+    "train_sec": 316
+  },
+  "seq2point_cnn": {
+    "threshold": 0.65,
+    "epochs": 12,
+    "best_epoch": 6,
+    "window_min": 99,
+    "params": 129650
+  },
+  "ensemble": {
+    "cnn_weight": 0.75,
+    "threshold": 0.5
+  },
+  "val_nep": {
+    "lightgbm": 0.9141901135444641,
+    "seq2point_cnn": 0.5446212887763977,
+    "ensemble": 0.531846821308136
+  },
+  "final_model": "ensemble"
+}

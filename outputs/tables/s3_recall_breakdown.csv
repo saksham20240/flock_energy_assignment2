@@ -1,0 +1,7 @@
+,recall,cycles
+cold wash (no heater),0.491,159
+heated wash,0.893,867
+WM share of load <15%,0.758,326
+WM share of load 15-30%,0.876,354
+WM share of load 30-50%,0.87,238
+WM share of load >50%,0.815,108

@@ -1,0 +1,15 @@
+part,step,rows_in,rows_out,affected
+1,2 clock: wall clock -> UTC; drop non-existent spring-forward times,4377877,4377877,0
+1,3 sort by UTC (rows moved out of order),4377877,4377877,1
+1,4a drop exact duplicate rows,4377877,3781986,595891
+1,"4b same timestamp, conflicting values: keep last",3781986,3732681,49305
+1,5 out-of-range values -> NaN (cells),3732681,3732681,2650
+1,6 resample to 1-min mean (rows -> minutes),3732681,513322,0
+2,2 clock: wall clock -> UTC; drop non-existent spring-forward times,4140886,4140886,0
+2,3 sort by UTC (rows moved out of order),4140886,4140886,0
+2,4a drop exact duplicate rows,4140886,4140886,0
+2,"4b same timestamp, conflicting values: keep last",4140886,4140886,0
+2,5 out-of-range values -> NaN (cells),4140886,4140886,985
+2,6 resample to 1-min mean (rows -> minutes),4140886,543720,0
+0,7 merge parts: Part1 minute if present else Part2,1057042,920031,0
+0,8 forward-fill gaps <= 5 min; flag longer,920031,920031,14634

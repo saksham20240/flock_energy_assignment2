@@ -1,0 +1,24 @@
+,Part1,Part2
+part,1,2
+rows,4377877,4140886
+first,2013-10-09 14:06:17,2014-06-27 21:57:50
+last,2014-10-01 01:27:07,2015-07-10 11:56:32
+unparsed_time,0,0
+unix_minus_time_le_1s_pct,100.0,100.0
+backward_steps,2,0
+largest_backward_step_s,-3598.0,1.0
+exact_duplicate_rows,595935,0
+duplicate_timestamps,645514,0
+timestamps_with_conflicting_values,48841,0
+median_interval_s,5.0,7.0
+p99_interval_s,15.0,9.0
+gaps_gt_1min,780,3603
+gaps_gt_1h,14,19
+gaps_gt_1day,3,10
+agg_gt_20kW,53,74
+agg_eq_0,12,0
+iam_gt_4kW,3038,911
+negative,0,0
+nan_cells,0,5284083
+rows_sum_iam_gt_agg_pct,0.96,0.28
+backward_steps_at,2013-10-27 01:59:59 -> 2013-10-27 01:00:01; 2014-08-15 02:00:36 -> 2014-08-15 02:00:35,

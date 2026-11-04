@@ -1,0 +1,11 @@
+channel,missing_minutes_before,short_gap_minutes_filled,long_gap_minutes_left_nan,pct_minutes_usable
+Aggregate,115079,861,114218,87.59
+Appliance1,117634,2144,115490,87.45
+Appliance2,118454,2128,116326,87.36
+Appliance3,116526,892,115634,87.43
+Appliance4,116087,968,115119,87.49
+Appliance5,123496,3123,120373,86.92
+Appliance6,115908,769,115139,87.49
+Appliance7,115088,860,114228,87.58
+Appliance8,116720,1583,115137,87.49
+Appliance9,212908,1306,211602,77.0

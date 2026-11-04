@@ -1,0 +1,9 @@
+house,has_heater,mean,size
+2,False,0.714,7
+2,True,0.779,298
+9,False,0.667,3
+9,True,0.991,231
+17,False,0.595,42
+17,True,0.912,227
+21,False,0.43,107
+21,True,0.955,111

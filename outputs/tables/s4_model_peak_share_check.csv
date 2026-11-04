@@ -1,0 +1,7 @@
+,cycles,cycles,peak_cycle_share,peak_cycle_share,wm_kwh,wm_kwh
+source,model (aggregate only),sub-meter (truth),model (aggregate only),sub-meter (truth),model (aggregate only),sub-meter (truth)
+house,,,,,,
+2,439,305,0.317,0.197,128.1,183.4
+9,494,234,0.366,0.316,147.6,119.7
+17,276,269,0.203,0.156,58.2,57.3
+21,487,218,0.263,0.119,89.9,61.9

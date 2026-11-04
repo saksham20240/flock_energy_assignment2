@@ -1,0 +1,8 @@
+,value
+period_utc,2013-10-09 13:06:00 -> 2015-07-10 10:56:00
+minutes_total,920031
+aggregate_usable_pct,87.59
+long_outages,374
+long_outage_hours,1903.6
+longest_outage_days,41.6
+minutes_sub_gt_agg_pct,0.59

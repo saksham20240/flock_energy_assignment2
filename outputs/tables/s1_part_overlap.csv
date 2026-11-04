@@ -1,0 +1,7 @@
+,value
+overlap_minutes,137011.0
+part1_minutes_with_data,125954.0
+part2_minutes_with_data,128495.0
+corr_1min_aggregate,0.797
+mae_1min_aggregate_W,57.6
+corr_15min_aggregate,0.969

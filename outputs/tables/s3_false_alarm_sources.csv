@@ -1,0 +1,9 @@
+likely_source,false_alarms,predicted_wh,share_of_false_alarms_pct
+no metered load >= 500 W (unmetered),395,44751.0,48.0
+Kettle,207,55977.0,25.0
+Dishwasher,163,26640.0,20.0
+Tumble dryer,18,3679.0,2.0
+Microwave,15,3541.0,2.0
+Electric heater,13,1385.0,2.0
+Washer-dryer,13,1687.0,2.0
+Toaster,2,1002.0,0.0
