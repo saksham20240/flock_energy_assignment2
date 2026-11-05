@@ -1,11 +1,4 @@
-"""Section 4 experiment: what is lost with 15- or 30-minute smart-meter data?
 
-Same homes and split as Section 3. At each resolution the aggregate and the washing-machine
-power are averaged over the interval (an interval counts only if >= 90% of its minutes are
-valid). One LightGBM regressor per resolution predicts mean WM power in the interval from
-the aggregate around it (same features at every resolution, spans measured in intervals).
-Daily energy is compared at every resolution, so the numbers are on a common footing.
-"""
 import lightgbm as lgb
 import numpy as np
 import pandas as pd
