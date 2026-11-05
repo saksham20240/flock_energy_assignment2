@@ -13,10 +13,10 @@ HALF = WINDOW // 2
 
 @dataclass
 class Split:
-    agg: np.ndarray        # W, NaN-free (gaps filled), clipped
-    wm: np.ndarray         # W target, NaN where unknown
-    valid: np.ndarray      # minute can be scored / used as a training target
-    house: np.ndarray      # house id per minute (0 in padding)
+    agg: np.ndarray        
+    wm: np.ndarray         
+    valid: np.ndarray     
+    house: np.ndarray      
     utc: np.ndarray
     local: np.ndarray
 
@@ -61,7 +61,7 @@ def windows(s: Split, idx: np.ndarray) -> np.ndarray:
     return s.agg[idx[:, None] + offs[None, :]]
 
 
-# ---------- hand-built features for the gradient-boosting model ----------
+
 SPANS = (5, 15, 31, 61, 99)
 
 
