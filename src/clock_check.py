@@ -1,12 +1,4 @@
-"""Evidence for the clock correction in clock.py, for every washing-machine house.
 
-The raw files are UK wall clock (proof: raw House 1 Part1 repeats 01:00-02:00 on
-27 Oct 2013, see s1_raw_checks.csv). For each house we find the lag (minutes) that best
-aligns the official cleaned aggregate with the raw aggregate in two summer (BST) months:
-  * a month inside raw Part1 (before ~Oct 2014): expect -60 if the clean file is UTC
-  * May 2015 (raw Part2):                        expect -60 if UTC, 0 if wall clock
-then repeats it after applying clock.to_utc(), where both should read -60 (true UTC).
-"""
 import numpy as np
 import pandas as pd
 import pyarrow as pa
