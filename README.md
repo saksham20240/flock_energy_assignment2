@@ -138,4 +138,4 @@ This project was built using some help from claude.
 3. **A joint dishwasher and washing-machine model**, so each 2 kW heater block is assigned to one appliance. Dishwashers cause 20% of false alarms.
 4. **Cycle-level post-processing with duration and energy priors** from the EDA, to remove short kettle- and oven-triggered "washes".
 5. **Better coverage of cold and eco washes**, through a dedicated class or synthetic examples.
-6. **Calibrated uncertainty**, such as "3–4 washes this week", for customer-facing use.
+6. **Calibrated uncertainty**, such as 3–4 washes this week, for customer-facing use.
