@@ -39,7 +39,7 @@ class Seq2Point(nn.Module):
         self.power = nn.Linear(128, 1)
         self.gate = nn.Linear(128, 1)
 
-    def forward(self, x):                                    # x: (B, WINDOW) in W
+    def forward(self, x):                                    
         x = x / 1000.0
         x = torch.stack([x, x - x.min(dim=1, keepdim=True).values], dim=1)
         z = self.fc(self.conv(x))
@@ -63,7 +63,7 @@ def train_cnn(tr: Split, va: Split, rng):
     opt = torch.optim.AdamW(net.parameters(), lr=1e-3, weight_decay=1e-4)
     sched = torch.optim.lr_scheduler.CosineAnnealingLR(opt, EPOCHS)
     bce, huber = nn.BCEWithLogitsLoss(), nn.HuberLoss(delta=0.5)
-    va_idx = np.flatnonzero(va.valid)[::3]                   # every 3rd minute keeps per-epoch checks fast
+    va_idx = np.flatnonzero(va.valid)[::3]                   
     history, best, best_state = [], np.inf, None
     for ep in range(EPOCHS):
         t0 = time.time()
@@ -92,7 +92,7 @@ def train_cnn(tr: Split, va: Split, rng):
     return net, pd.DataFrame(history)
 
 
-# ------------------------------------------------------------------ LightGBM
+# LightGBM
 def train_lgbm(tr: Split, va: Split, ftr, fva, rng):
     idx = sample_training_indices(tr, rng, NEG_PER_POS)
     on = (tr.wm[idx] > ON_W).astype(int)
@@ -115,7 +115,7 @@ def lgbm_predict(clf, reg, f, idx):
     return np.clip(reg.predict(X), 0, None).astype("float32"), clf.predict_proba(X)[:, 1].astype("float32")
 
 
-# ------------------------------------------------------------------ baselines
+# baselines
 def profile_table(tr: Split):
     loc = pd.DatetimeIndex(tr.local[tr.valid])
     df = pd.DataFrame({"h": loc.hour, "we": loc.day_of_week >= 5, "wm": tr.wm[tr.valid]})
@@ -155,7 +155,7 @@ def main(retrain=False):
     split_info.to_csv(TAB_DIR / "s3_split.csv", index=False)
     print(split_info.to_string())
 
-    preds = {}   # model -> full-length prediction array over te (0 where not scored)
+    preds = {}   
     va_idx, te_idx = np.flatnonzero(va.valid), np.flatnonzero(te.valid)
 
     # Baselines
@@ -186,7 +186,7 @@ def main(retrain=False):
     lgb_te = (pw, pr)
     del ftr, fva, fte
 
-    # CNN (training takes ~1 h on CPU; an existing checkpoint is reused unless --retrain)
+    
     t1 = time.time()
     ckpt = PROC_DIR / "seq2point_cnn.pt"
     if ckpt.exists() and not retrain:
@@ -210,7 +210,7 @@ def main(retrain=False):
                                  "window_min": WINDOW, "params": sum(q.numel() for q in net.parameters())}
     print("cnn", settings["seq2point_cnn"], flush=True)
 
-    # Ensemble: weighted mean of the two models' p(on) and power; weight and threshold chosen on VAL only
+    
     grid_e, best = [], None
     for w in (0.25, 0.5, 0.75):
         pw_v = w * cnn_va[0] + (1 - w) * lgb_va[0]
@@ -235,7 +235,7 @@ def main(retrain=False):
     (TAB_DIR / "s3_model_settings.json").write_text(json.dumps(settings, indent=2, default=float))
     final = settings["final_model"]
 
-    # ---- Test evaluation (only now are the test homes scored)
+    
     rows, cyc_rows, daily_rows = [], [], []
     for name, pfull in preds.items():
         for h in TEST_HOUSES:
