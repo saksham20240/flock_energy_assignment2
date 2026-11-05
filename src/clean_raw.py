@@ -1,21 +1,4 @@
-"""Section 1: inspect and clean raw REFIT House 1, resample to 1 minute.
 
-Pipeline (each step logged to outputs/tables/s1_cleaning_log.csv):
-  1. parse   Time column -> wall clock; check it against the Unix column
-  2. clock   raw times are UK wall clock (the 01:00-02:00 hour repeats on 27 Oct 2013);
-             convert to UTC, resolving the repeated hour by row order
-  3. sort    stable sort on UTC
-  4. dedup   drop exact duplicate rows; for the same timestamp with conflicting values keep the
-             LAST row (the logger writes on change, so the later row is the newer state)
-  5. limits  Aggregate > 20 kW or == 0 -> NaN; IAM > 4 kW or < 0 -> NaN (sensor/bit errors,
-             e.g. 4096, 8192, 32767, 65535, 98301 W)
-  6. 1-min   mean of readings inside each minute; empty minute -> NaN
-  7. parts   Part1 and Part2 overlap (27 Jun - 1 Oct 2014). Use Part1's minute when it has one,
-             else Part2's, so the overlap is never double-counted
-  8. gaps    NaN runs <= 5 min are forward-filled (the logger only writes on change, so a short
-             silence most likely means "unchanged"); longer runs are left NaN and flagged
-  9. flags   `agg_outage` (long aggregate gap), `sub_gt_agg` (sum of IAMs > aggregate + 50 W)
-"""
 import numpy as np
 import pandas as pd
 import pyarrow as pa
