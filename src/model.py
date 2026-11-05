@@ -1,16 +1,4 @@
-"""Section 3: estimate washing-machine power from the household aggregate (1-minute).
 
-Split by household (config.py): TRAIN homes fit the models, VAL homes choose the epoch and
-the on/off gate threshold, TEST homes are touched once, at the end. No home is on two sides,
-so the model can't memorise a test home's appliances, habits or base load.
-
-Models
-  baseline_off      always predicts 0 W
-  baseline_profile  mean washing-machine power by local hour x weekday/weekend, from TRAIN homes
-  lightgbm          gated model on hand-built rolling-window features
-  seq2point_cnn     Seq2Point CNN (99-min window -> centre minute) with an on/off gate head
-Both learned models output p(on) and power-if-on; prediction = power if p(on) > threshold else 0.
-"""
 import json
 import sys
 import time
