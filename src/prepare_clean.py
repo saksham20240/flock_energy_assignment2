@@ -1,10 +1,4 @@
-"""Step 0: official cleaned REFIT -> 1-minute parquet per washing-machine house.
 
-Only the columns needed downstream are read (Unix, Aggregate, washing-machine IAM,
-Issues). Readings are averaged inside each minute; a minute with no reading stays NaN.
-The clean files' timestamps are not on one clock (see clock_check.py); here we keep
-the file's own clock ("file_time") and clock_check.py decides the correction.
-"""
 import time
 
 import numpy as np
