@@ -1,15 +1,4 @@
-"""Clock handling for the official cleaned REFIT files.
 
-Finding (verified in clock_check.py): the cleaned files are in UTC only up to the end
-of each house's raw *_Part1 file (~1 Oct 2014). After that the rows come from raw
-Part2, which is UK wall-clock time, and the cleaning did not convert it. The readme
-says the data were "corrected for UK daylight savings", so this is undocumented.
-
-`file_time` = the timestamp as written in the CSV (Unix column, read naively).
-`utc`       = true UTC, after the fix below.
-`local`     = Europe/London wall clock, used for hour-of-day / day-of-week analysis,
-              because people schedule washing by the clock on the wall.
-"""
 import os
 
 import pandas as pd
