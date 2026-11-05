@@ -117,7 +117,7 @@ Both learned models output `power if p(on) > threshold else 0`. The threshold mi
 | Paper | What I took from it |
 |---|---|
 | Murray, Stankovic & Stankovic (2017), *An electrical load measurements dataset of United Kingdom households from a two-year longitudinal study*, Scientific Data 4:160122 | Dataset description, channel semantics, known gaps |
-| Zhang, Zhong, Wang, Goddard & Sutton (2018), *Sequence-to-point learning with neural networks for non-intrusive load monitoring*, AAAI (arXiv:1612.09106) | Predicting the centre point of a window; training on some REFIT homes and testing on an unseen one; MAE and SAE metrics |
+| Zhang, Zhong, Wang, Goddard & Sutton (2018), *Sequence-to-point learning with neural networks for non-intrusive load monitoring*, AAAI (arXiv:1612.09106) | Predicting the centre point of a window, training on some REFIT homes and testing on an unseen one, MAE and SAE metrics |
 | Shin, Joo, Ko & Rhee (2019), *Subtask gated networks for non-intrusive load monitoring*, AAAI | The on/off gate head multiplied with the power head |
 | Kelly & Knottenbelt (2015), *Neural NILM: Deep neural networks applied to energy disaggregation*, BuildSys (arXiv:1507.06594) | Balanced sampling of activations and non-activations; testing on unseen houses |
 | D'Incecco, Squartini & Zhong (2020), *Transfer learning for non-intrusive load monitoring*, IEEE Trans. Smart Grid | Evidence that cross-house generalisation is the hard part; washing machines transfer worst |
