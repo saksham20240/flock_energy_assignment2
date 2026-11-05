@@ -1,7 +1,7 @@
 """Run the whole pipeline end to end, in order.
 
-    python run_all.py              # everything (~1.5 h on a 14-core laptop CPU, most of it CNN training)
-    python run_all.py --skip-clock # skip clock_check.py (reads all 8 GB of raw files, ~3 min)
+    python run_all.py             
+    python run_all.py --skip-clock 
 """
 import subprocess
 import sys
